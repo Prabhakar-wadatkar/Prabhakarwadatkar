@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prabhakar Wadatkar - Software Development & Digital Marketing</title>
+    <title>Prabhakarwadatkar.in - Software Development & Digital Marketing</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
@@ -55,13 +55,9 @@
         .typing-effect {
             overflow: hidden;
             border-right: 3px solid var(--green-accent);
-            animation: typing 3s steps(40, end), blink-caret 0.75s step-end infinite;
+            animation: blink-caret 0.75s step-end infinite;
             display: inline-block;
             max-width: 100%;
-        }
-        @keyframes typing {
-            from { width: 0; }
-            to { width: 100%; }
         }
         @keyframes blink-caret {
             from, to { border-color: transparent; }
@@ -124,7 +120,7 @@
             }
             .typing-effect {
                 white-space: normal; /* Allow text to wrap on smaller screens */
-                animation: none; /* Disable typing animation on mobile to prevent overflow */
+                animation: none; /* Disable caret animation on mobile to prevent overflow */
                 border-right: none; /* Remove caret on mobile */
                 width: 100%; /* Ensure full width */
             }
@@ -198,7 +194,7 @@
     <!-- Hero Section -->
     <section id="home" class="text-white py-24 md:py-32 animate-fadeIn parallax" style="background-image: url('https://images.unsplash.com/photo-1600585154347-be6161a56a0c');">
         <div class="container mx-auto text-center px-4">
-            <h1 class="text-2xl sm:text-3xl md:text-5xl lg:text-7xl font-bold mb-4 typing-effect inline-block" style="color: var(--white-text); text-shadow: 2px 2px 8px rgba(0,0,0,0.5);">Transform Your Business with Expert Solutions</h1>
+            <h1 class="text-2xl sm:text-3xl md:text-5xl lg:text-7xl font-bold mb-4 typing-effect inline-block" style="color: var(--white-text); text-shadow: 2px 2px 8px rgba(0,0,0,0.5);" id="typing-text"></h1>
             <p class="text-base md:text-lg lg:text-2xl mb-6" style="color: var(--white-text);">Software Development, Maintenance & Digital Marketing Services</p>
             <a href="#contact" class="text-black px-6 py-3 md:px-8 md:py-4 rounded-full font-semibold hover:bg-green-400 hover-scale animate-bounce shadow-lg" style="background-color: var(--green-accent);">Get Started</a>
         </div>
@@ -258,12 +254,12 @@
                 <div class="glassmorphism p-6 text-white">
                     <h4 class="text-lg md:text-2xl font-semibold mb-2" style="color: var(--white-text);">Pavan Bhivate</h4>
                     <p class="text-xs md:text-sm font-medium mb-2" style="color: var(--green-accent);">Digital Marketing Expert</p>
-                    <p class="text-xs md:text-sm">Amita specializes in SEO and social media marketing, helping clients boost their online presence with creative and data-driven strategies.</p>
+                    <p class="text-xs md:text-sm">Pavan specializes in SEO and social media marketing, helping clients boost their online presence with creative and data-driven strategies.</p>
                 </div>
                 <div class="glassmorphism p-6 text-white">
                     <h4 class="text-lg md:text-2xl font-semibold mb-2" style="color: var(--white-text);">Rushikesh Kale</h4>
                     <p class="text-xs md:text-sm font-medium mb-2" style="color: var(--green-accent);">Senior Developer</p>
-                    <p class="text-xs md:text-sm">Rahul is an expert in mobile app development, ensuring our apps are user-friendly, efficient, and built with the latest technologies.</p>
+                    <p class="text-xs md:text-sm">Rushikesh is an expert in mobile app development, ensuring our apps are user-friendly, efficient, and built with the latest technologies.</p>
                 </div>
             </div>
         </div>
@@ -333,6 +329,23 @@
                 alert('Please fill in all fields.');
             }
         }
+
+        // Letter-by-letter typing effect
+        document.addEventListener('DOMContentLoaded', () => {
+            const typingText = document.getElementById('typing-text');
+            const textToType = "Transform Your Business with Expert Solutions";
+            let index = 0;
+
+            function typeLetter() {
+                if (index < textToType.length) {
+                    typingText.textContent += textToType.charAt(index);
+                    index++;
+                    setTimeout(typeLetter, 100); // Adjust speed here (100ms per letter)
+                }
+            }
+
+            typeLetter();
+        });
     </script>
 </body>
 </html>
